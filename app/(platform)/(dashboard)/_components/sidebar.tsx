@@ -30,6 +30,7 @@ const Sidebar = ({ storageKey = "tsidebar-state" }: SidebarProps) => {
       if (expanded[key]) {
         acc.push(key);
       }
+
       return acc;
     },
     []
@@ -45,7 +46,15 @@ const Sidebar = ({ storageKey = "tsidebar-state" }: SidebarProps) => {
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
       <>
-        <Skeleton />
+        <div className="flex items-center justify-between mb-2">
+          <Skeleton className="h-10 w-[50%]" />
+          <Skeleton className="h-10 w-10" />
+        </div>
+        <div className="space-y-2">
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+        </div>
       </>
     );
   }
@@ -62,7 +71,6 @@ const Sidebar = ({ storageKey = "tsidebar-state" }: SidebarProps) => {
       </div>
       <Accordion className="space-y-2" type="multiple" defaultValue={defaultAccordianValue}>
         {userMemberships.data.map(({ organization }) => (
-          // <p key={organization.id}>{organization.id}</p>
           <NavItem
             key={organization.id}
             isActive={activeOrganization?.id === organization.id}

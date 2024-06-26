@@ -8,6 +8,7 @@ import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { AccordionContent } from "@radix-ui/react-accordion";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type Organization = {
   id: string;
@@ -39,9 +40,9 @@ export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavIte
       href: `/organization/${organization.id}/activity`,
     },
     {
-      label: "Setting",
+      label: "Settings",
       icon: <Settings className="h-4 w-4 mr-2" />,
-      href: `/organization/${organization.id}/setting`,
+      href: `/organization/${organization.id}/settings`,
     },
     {
       label: "Billing",
@@ -56,7 +57,6 @@ export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavIte
 
   return (
     <AccordionItem value={organization.id} className="border-none">
-      {/* <p key={organization.id}>{organization.id}</p> */}
       <AccordionTrigger
         onClick={() => onExpand(organization.id)}
         className={cn(
@@ -94,5 +94,16 @@ export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavIte
         ))}
       </AccordionContent>
     </AccordionItem>
+  );
+};
+
+NavItem.Skeleton = function SkeletonNavItem() {
+  return (
+    <div className="flex items-center gap-x-2">
+      <div className="w-10 h-10 relative shrink-0">
+        <Skeleton className="h-full w-full absolute" />
+      </div>
+      <Skeleton className="h-10 w-full" />
+    </div>
   );
 };
