@@ -20,7 +20,6 @@ export const createSafeAction = <TInput, TOutput>(
     if (!validatedResult.success) {
       return {
         fieldErrors: validatedResult.error.flatten().fieldErrors as FieldErrors<TInput>,
-        error: "Missing fields",
       };
     }
 

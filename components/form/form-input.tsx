@@ -16,7 +16,7 @@ interface FormInputProps {
   disabled?: boolean;
   errors?: Record<string, string[] | undefined>;
   className?: string;
-  defaultValue: string;
+  defaultValue?: string;
   onBlur?: () => void;
 }
 
