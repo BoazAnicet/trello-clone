@@ -79,6 +79,7 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
               checked={selectedImageId === image.id}
               disabled={pending}
               value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
+              readOnly
             />
             <Image
               className="object-cover rounded-sm"

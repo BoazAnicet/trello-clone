@@ -30,7 +30,7 @@ export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavIte
 
   const routes = [
     {
-      label: "Board",
+      label: "Boards",
       icon: <Layout className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}`,
     },
