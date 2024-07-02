@@ -18,13 +18,6 @@ export const ListContainer = ({ boardId, data }: ListContainerProps) => {
     setOrderedData(data);
   }, [data]);
 
-  // const moveList = (fromIndex: number, toIndex: number) => {
-  //   const newData = [...orderedData];
-  //   const [removed] = newData.splice(fromIndex, 1);
-  //   newData.splice(toIndex, 0, removed);
-  //   setOrderedData(newData);
-  // };
-
   return (
     <ol className="flex gap-x-3 h-full">
       {orderedData.map((list, index) => {
