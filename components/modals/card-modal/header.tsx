@@ -26,6 +26,7 @@ export const Header = ({ data }: HeaderProps) => {
       });
 
       toast.success(`Renamed card to "${data.title}"`);
+
       setTitle(data.title);
     },
     onError: (error) => {
