@@ -21,7 +21,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 		};
 	}
 
-	const isPro = checkSubscription();
+	const isPro = await checkSubscription();
 
 	const { id } = data;
 	let board;
